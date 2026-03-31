@@ -12,10 +12,8 @@ const downloadBtn = document.getElementById("downloadBtn");
 const formNote = document.getElementById("formNote");
 const bookButtons = document.querySelectorAll("[data-book]");
 const homeCollectionBtn = document.getElementById("homeCollectionBtn");
-const testimonials = document.querySelectorAll(".testimonial");
 
 let activeFilter = "all";
-let testimonialIndex = 0;
 
 window.addEventListener("scroll", () => {
     siteHeader.classList.toggle("scrolled", window.scrollY > 10);
@@ -91,13 +89,13 @@ reportForm.addEventListener("submit", (event) => {
 
     downloadBtn.disabled = true;
     downloadBtn.textContent = "Processing...";
-    formNote.textContent = "Checking your details. Please wait a moment.";
+    formNote.textContent = "Submitting your request. Please wait a moment.";
     formNote.style.color = "#5b6474";
 
     window.setTimeout(() => {
         downloadBtn.disabled = false;
-        downloadBtn.textContent = "Download Report";
-        formNote.textContent = `Request received for ${patientId}. Report link will be shared on ${mobileNumber}.`;
+        downloadBtn.textContent = "Send Report Request";
+        formNote.textContent = `Request received for ${patientId}. Our team can follow up on ${mobileNumber}.`;
         formNote.style.color = "#1bb38a";
         patientIdInput.value = "";
         mobileNumberInput.value = "";
@@ -125,26 +123,20 @@ const counterObserver = new IntersectionObserver((entries) => {
 
         const target = entry.target;
         const finalValue = Number(target.dataset.count || 0);
-        const duration = 1200;
+        const duration = 900;
         const startTime = performance.now();
 
         function tick(now) {
             const progress = Math.min((now - startTime) / duration, 1);
             const current = Math.floor(progress * finalValue);
-            target.textContent = `${current}${finalValue >= 1000 ? "+" : finalValue === 99 ? "%" : finalValue === 24 ? "/7" : "+"}`;
+            target.textContent = `${current}+`;
 
             if (progress < 1) {
                 window.requestAnimationFrame(tick);
                 return;
             }
 
-            if (finalValue === 99) {
-                target.textContent = "99.9%";
-            } else if (finalValue === 24) {
-                target.textContent = "24/7";
-            } else {
-                target.textContent = `${finalValue}+`;
-            }
+            target.textContent = `${finalValue}+`;
         }
 
         window.requestAnimationFrame(tick);
@@ -153,11 +145,3 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 counters.forEach((counter) => counterObserver.observe(counter));
-
-if (testimonials.length > 1) {
-    window.setInterval(() => {
-        testimonials.forEach((item) => item.classList.remove("active"));
-        testimonialIndex = (testimonialIndex + 1) % testimonials.length;
-        testimonials[testimonialIndex].classList.add("active");
-    }, 2500);
-}
