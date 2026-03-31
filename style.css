@@ -67,7 +67,7 @@ button, input { font: inherit; }
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 78px;
+    min-height: 84px;
 }
 
 .brand {
@@ -76,17 +76,14 @@ button, input { font: inherit; }
     gap: 0.9rem;
 }
 
-.brand-mark {
-    width: 46px;
-    height: 46px;
-    display: grid;
-    place-items: center;
-    border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
+.brand-logo {
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 20px;
+    background: #fff;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(20, 33, 61, 0.08);
 }
 
 .brand strong,
@@ -459,6 +456,16 @@ button, input { font: inherit; }
     gap: 1rem;
 }
 
+.consult-price {
+    margin: 1rem 0 1.2rem;
+    display: inline-flex;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 800;
+}
+
 .report-box {
     padding: 1.5rem;
     display: grid;
@@ -602,6 +609,7 @@ button, input { font: inherit; }
     .hero { padding-top: 2rem; }
     .shell { width: min(100% - 1.1rem, 1120px); }
     .hero h1 { font-size: 2.5rem; }
+    .brand-logo { width: 54px; height: 54px; }
 
     .hero-card, .stat-pill, .test-card, .service-panel, .report-box, .team-card, .testimonial, .contact-card {
         border-radius: 22px;
