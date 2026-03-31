@@ -11,7 +11,7 @@ const mobileNumberInput = document.getElementById("mobileNumber");
 const downloadBtn = document.getElementById("downloadBtn");
 const formNote = document.getElementById("formNote");
 const bookButtons = document.querySelectorAll("[data-book]");
-const homeCollectionBtn = document.getElementById("homeCollectionBtn");
+const consultationBtn = document.getElementById("consultationBtn");
 
 let activeFilter = "all";
 
@@ -66,8 +66,8 @@ bookButtons.forEach((button) => {
     });
 });
 
-homeCollectionBtn.addEventListener("click", () => {
-    const message = "Hello! I want to book a home sample collection. Please guide me.";
+consultationBtn.addEventListener("click", () => {
+    const message = "Hello! I want to book a 1:1 video session with a lab expert for Rs. 99. Please share the booking steps.";
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
 });
 
@@ -129,14 +129,14 @@ const counterObserver = new IntersectionObserver((entries) => {
         function tick(now) {
             const progress = Math.min((now - startTime) / duration, 1);
             const current = Math.floor(progress * finalValue);
-            target.textContent = `${current}+`;
+            target.textContent = finalValue === 99 ? `Rs. ${current}` : `${current}+`;
 
             if (progress < 1) {
                 window.requestAnimationFrame(tick);
                 return;
             }
 
-            target.textContent = `${finalValue}+`;
+            target.textContent = finalValue === 99 ? "Rs. 99" : `${finalValue}+`;
         }
 
         window.requestAnimationFrame(tick);
