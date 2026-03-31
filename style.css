@@ -188,7 +188,8 @@ button, input { font: inherit; }
 .report-box p,
 .team-card p,
 .testimonial p,
-.stat-pill p { color: var(--muted); }
+.stat-pill p,
+.inline-note { color: var(--muted); }
 
 .hero-text {
     max-width: 38rem;
@@ -432,7 +433,7 @@ button, input { font: inherit; }
     color: #fff;
 }
 
-.service-panel.highlight p, .service-panel.highlight .eyebrow { color: rgba(255, 255, 255, 0.8); }
+.service-panel.highlight p, .service-panel.highlight .eyebrow { color: rgba(255, 255, 255, 0.82); }
 
 .timeline div {
     flex: 1;
@@ -491,7 +492,7 @@ button, input { font: inherit; }
 .team-card span { color: var(--primary); font-weight: 700; }
 
 .testimonial { border-left: 4px solid var(--accent); }
-.testimonial.active { transform: translateY(-4px); }
+.commitments-grid .testimonial strong { display: block; margin-top: 1rem; }
 
 .map-card { padding: 0; overflow: hidden; }
 
@@ -500,6 +501,12 @@ button, input { font: inherit; }
     height: 100%;
     min-height: 320px;
     border: 0;
+}
+
+.inline-note {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.84rem;
 }
 
 .sticky-actions { display: none; }
